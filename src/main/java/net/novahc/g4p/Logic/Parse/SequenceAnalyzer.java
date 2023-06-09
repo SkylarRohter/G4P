@@ -1,4 +1,4 @@
-package net.novahc.g4p.Logic;
+package net.novahc.g4p.Logic.Parse;
 
 import java.text.DecimalFormat;
 
@@ -13,6 +13,8 @@ public class SequenceAnalyzer {
     }
     //Splits string into char array, then each char is compared within a if statement
     //Values are added up and returned in an integer array
+    //TAC TCG TCG CAG TCT TGA
+    //AGC AGC GTC AGA
     public int[] getBPCounts(){
         char[] seq = sequence.toUpperCase().toCharArray();
         int A = 0,C = 0,T = 0,G = 0;

@@ -1,3 +1,28 @@
 .root{
-    -fx-background-color: black;
+    -fx-background-color: white;
 }
+#sideBar{
+    -fx-background-color: rgb(89, 155, 130);
+}
+#mainPane{
+    -fx-background-color: white;
+}
+.button{
+    -fx-background-radius: 10;
+}
+
+#uploadButton{
+    -fx-background-color: #abffbc;
+}
+#uploadButton:hover{
+    -fx-background-color: #d5d5d5;
+}
+#pasteButton{
+    -fx-background-color: #80ef86;
+}
+#pasteButton:hover{
+    -fx-background-color: #d5d5d5;
+}
+
+.default-color0.chart-bar{ -fx-bar-fill:#abffbc;}
+

@@ -1,4 +1,4 @@
-package net.novahc.g4p.Logic;
+package net.novahc.g4p.Logic.Parse;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,6 +21,9 @@ public class FileScanner {
 
     public String getSequence() {
         return sequence;
+    }
+    public String getRNA(){
+        return sequence.replaceAll("T","U");
     }
 
     private String sequence;

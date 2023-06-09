@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
 
+<AnchorPane prefHeight="513.0" prefWidth="790.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.novahc.g4p.Controller">
+   <children>
+      <Pane fx:id="sideBar" layoutX="-2.0" prefHeight="515.0" prefWidth="155.0" />
+      <Pane id="mainPane" fx:id="mainPane" layoutX="153.0" prefHeight="515.0" prefWidth="640.0">
+         <children>
+            <Button fx:id="uploadButton" layoutX="59.0" layoutY="35.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="159.0" text="Upload">
+               <font>
+                  <Font name="Lucida Grande" size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="pasteButton" layoutX="250.0" layoutY="35.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="159.0" text="Start">
+               <font>
+                  <Font name="Lucida Grande" size="16.0" />
+               </font>
+            </Button>
+            <Line endX="194.7470703125" layoutX="214.0" layoutY="101.0" startX="-152.9588623046875" />
+            <BarChart fx:id="countChart" layoutX="40.0" layoutY="299.0" prefHeight="199.0" prefWidth="287.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>
