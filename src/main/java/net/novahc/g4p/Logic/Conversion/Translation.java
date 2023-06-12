@@ -9,7 +9,8 @@ public class Translation {
     public Translation(ArrayList<char[]> RNA){
         this.RNA = RNA;
         translate();
-        System.out.println(AA);
+        System.out.println("Amino Acid: ");
+        System.out.print(AA);System.out.println();
     }
     private ArrayList<char[]> RNA;
     private ArrayList<String> AA = new ArrayList<>();

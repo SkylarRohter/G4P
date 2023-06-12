@@ -27,28 +27,16 @@ public class G4PMain extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(G4PMain.class.getResource("main.fxml"));
         String css = this.getClass().getResource("style.css").toExternalForm();
-        Scene scene = new Scene(fxmlLoader.load());
-        scene.getStylesheets().add(css);
-        move(stage, scene, scene);
-
 
         FileScanner fileScanner = new FileScanner("src/main/resources/text.txt");
         SequenceAnalyzer sa = new SequenceAnalyzer(fileScanner.getSequence());
-        System.out.println(Arrays.toString(sa.getBPCounts()));
-        int count = 0;
+        System.out.println("Base Pair Count: "+Arrays.toString(sa.getBPCounts()));
+        System.out.println("Base Pair Percentages: "+Arrays.toString(sa.getBPPercentages()));
         Transciption trans = new Transciption();
-        trans.transcript(getReadingFrames(fileScanner.getSequence()));
-        do {
-            String substring = fileScanner.getSequence().substring(Splitter.stop);
-            trans.transcript(getReadingFrames(substring));
-            Translation translation = new Translation(trans.getRNA());
-            count++;
-        }while(count < fileScanner.getSequence().length());
-
-        stage.initStyle(StageStyle.TRANSPARENT);
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.show();
+        Splitter splitter = new Splitter(fileScanner.getSequence());
+        splitter.split();
+        trans.transcript(splitter.getSplit());
+        Translation translation = new Translation(trans.getRNA());
     }
     // Controls movement of the main "Anchor Pane"
     private void move(Stage stage, Scene scene, Scene loginScene) {
@@ -60,14 +48,6 @@ public class G4PMain extends Application {
             stage.setX(event.getScreenX() + xOffset);
             stage.setY(event.getScreenY() + yOffset);
         });
-    }
-
-    private ArrayList<char[]> getReadingFrames(String s){
-        Splitter splitter = new Splitter(s,
-                new FindCodon("TAC", s).find(),
-                new FindCodon("TAC", s).getStopIndex());
-        splitter.split();
-        return splitter.getSplit();
     }
 
     public static void main(String[] args) {
